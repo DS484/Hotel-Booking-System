@@ -1,0 +1,74 @@
+.hotel-detail-container {
+
+    background-color: white;
+
+    .main-info-hotel {
+        background-color: white !important;
+        padding: 20px;
+    }
+
+    .amenity-icon {
+        font-size: 18px; /* Điều chỉnh kích thước icon */
+        color: #007bff; /* Giữ màu xanh */
+        margin-right: 8px; /* Tạo khoảng cách với chữ */
+    }
+
+    .info-section {
+        padding: 0px !important;
+        background-color:white !important;
+        border-radius: 10px;
+        padding: 10px;
+
+        .section-detail {
+            border: solid 1px rgb(223, 220, 220);
+            border-radius: 20px;
+        }
+
+        .btn-arrow {
+            color: #007bff;  
+            font-weight: bold;
+        }
+    }
+
+    .name-hotel {
+
+        .hotel-header {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .price {
+            color: #ff6200;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .rating {
+            background-color: #007bff;
+            color: white;
+            padding: 5px 10px;
+            border-radius:30%;
+            font-size: 1.2rem;
+        }
+
+    }
+
+
+
+    .room-list-container {
+
+        .room-header {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .warning-title {
+            background-color: #114c8b;
+            padding: 10px;
+            color: white;
+            font-weight: bolder;
+            border-radius: 10px;
+        }
+        
+
+    }
+
+}
