@@ -27,7 +27,6 @@ public class AuthController {
 
     AuthenticationService authenticationService;
     UserService userService;
-
     @PostMapping("outbound/authentication")
     ApiResponse<AuthenticationResponse> outBoundAuthentication(@RequestParam("code") String code) throws JOSEException {
         var result = authenticationService.outBoundAuthentication(code);
@@ -51,8 +50,8 @@ public class AuthController {
                 .build();
     }
 
-    @PostMapping(value="/sign-up", consumes = "multipart/form-data")
 
+    @PostMapping(value="/sign-up", consumes = "multipart/form-data")
     public ApiResponse<CreationUserResponse> signUp(@ModelAttribute CreationUserRequest request) throws IOException {
 
         CreationUserResponse response = userService.addUser(request);
@@ -63,7 +62,6 @@ public class AuthController {
                 .result(response)
                 .build();
     }
-
     @PostMapping(value="/login")
     public ApiResponse<AuthenticationResponse> login(@RequestBody AuthenticationRequest request) throws JOSEException, ParseException {
 
@@ -74,7 +72,6 @@ public class AuthController {
                 .result(response)
                 .build();
     }
-
 
     @PostMapping(value="introspect")
     public ApiResponse<IntrospectResponse> signUp(@RequestBody IntrospectRequest request) throws JOSEException, ParseException {
@@ -97,4 +94,8 @@ public class AuthController {
                 .message("login successfully")
                 .build();
     }
+
+
+
+
 }

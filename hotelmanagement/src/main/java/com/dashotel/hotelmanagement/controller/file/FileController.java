@@ -22,7 +22,6 @@ import java.io.IOException;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class FileController {
     FileStorageService fileStorageService;
-
     @GetMapping("/image/resize/{fileName}")
     public ResponseEntity<byte[]> getImageResized(@PathVariable String fileName) throws IOException {
         byte[] resizedImage = fileStorageService.resizeImage(fileName, 200, 200);
@@ -32,7 +31,6 @@ public class FileController {
 //                .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + file.getFilename() + "\"") //  Hiển thị file thay vì tải về
                 .body(resizedImage);
     }
-
     @GetMapping("/image/{fileName}")
     public ResponseEntity<byte[]> getOriginalImage(@PathVariable String fileName) throws IOException {
         Resource image = fileStorageService.getImage(fileName);
@@ -41,5 +39,7 @@ public class FileController {
                 .contentType(MediaType.IMAGE_JPEG)
                 .body(image.getInputStream().readAllBytes());
     }
+
+
 
 }

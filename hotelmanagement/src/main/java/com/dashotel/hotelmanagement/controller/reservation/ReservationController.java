@@ -31,7 +31,6 @@ import java.util.List;
 public class ReservationController {
     ReservationService reservationService;
     AuthenticationService authService;
-
     @PostMapping
     ApiResponse<InitialReservationResponse> createReservation (@RequestBody InitialReservationRequest request) throws ParseException {
         InitialReservationResponse result = reservationService.createReservation(request);
@@ -54,7 +53,6 @@ public class ReservationController {
                 .result(result)
                 .build();
     }
-
     @PreAuthorize("@reservationService.isOwnerOfReservation(#id, authentication.name)")
     @DeleteMapping("/{id}")
     public ApiResponse<ResponseDTO> cancelReservation(@PathVariable String id) {
@@ -66,8 +64,6 @@ public class ReservationController {
                 .result(deleted)
                 .build();
     }
-
-
     @PreAuthorize("@reservationService.isOwnerOfReservation(#id, authentication.name)")
     @GetMapping("/total-price/{id}")
     ApiResponse<Double> getTotalPrice (@PathVariable("id") String id)  {
@@ -78,7 +74,6 @@ public class ReservationController {
                 .result(result)
                 .build();
     }
-
 
     @PreAuthorize("@reservationService.isOwnerOfReservation(#request.reservationId, authentication.name)")
     @PostMapping("apply-discount")
@@ -92,8 +87,6 @@ public class ReservationController {
                 .build();
     }
 
-
-
     @PreAuthorize("@reservationService.isOwnerOfReservation(#id, authentication.name)")
     @GetMapping("/current-step")
     ApiResponse<ReservationStepResponse> getCurrentStep (@RequestParam("id") String id)  {
@@ -104,7 +97,6 @@ public class ReservationController {
                 .result(result)
                 .build();
     }
-
     @GetMapping("/history")
     ApiResponse<List<ReservationHistoryResponse>> getReservationHistory() {
         String customerId = authService.getCurrentUserId();
@@ -115,5 +107,4 @@ public class ReservationController {
                 .result(result)
                 .build();
     }
-
 }

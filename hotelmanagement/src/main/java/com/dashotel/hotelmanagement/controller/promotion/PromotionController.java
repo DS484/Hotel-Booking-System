@@ -19,7 +19,6 @@ import java.util.List;
 public class PromotionController {
 
     DiscountService discountService;
-
     // lấy những discount có sawnx
     @GetMapping(value = "/available")
     ApiResponse<List<DiscountDTO>> getAvailableDiscount() throws ParseException {
@@ -29,7 +28,6 @@ public class PromotionController {
                 .result(result)
                 .build();
     }
-
     @PostMapping
     ApiResponse<CreationResponse> addPromotion(@RequestBody DiscountDTO request) {
         var result = discountService.addDiscount(request);

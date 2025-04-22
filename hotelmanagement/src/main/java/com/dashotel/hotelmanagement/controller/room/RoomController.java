@@ -30,7 +30,6 @@ public class RoomController {
                 .result(result)
                 .build();
     }
-
     @PostMapping(value="/open-room")
     ApiResponse<CreationResponse> openRoom (@RequestBody OpenRoomRequest request) {
         var result = roomTypeService.openRoom(request);
@@ -40,7 +39,6 @@ public class RoomController {
                 .result(result)
                 .build();
     }
-
     @PostMapping(value="/update-image", consumes = "multipart/form-data")
     ApiResponse<CreationResponse> addImage(@ModelAttribute RoomTypeImageRequest request) throws IOException {
         var result = roomTypeService.addImageForRoomType(request);
@@ -50,4 +48,6 @@ public class RoomController {
                 .result(result)
                 .build();
     }
+
+
 }
