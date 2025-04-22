@@ -16,14 +16,15 @@ import java.util.List;
 
 @RestController
 public class AddressController {
+
     @GetMapping("/get-districts")
     ApiResponse<List<String>> getDistricts() throws IOException {
-            ObjectMapper mapper = new ObjectMapper();
-            InputStream is = getClass().getClassLoader().getResourceAsStream("districts.json");
-            List<String> districts =  mapper.readValue(is, new TypeReference<List<String>>() {});
-            return ApiResponse.<List<String>>builder()
-                    .code(HttpStatus.OK.value())
-                    .result(districts)
-                    .build();
+        ObjectMapper mapper = new ObjectMapper();
+        InputStream is = getClass().getClassLoader().getResourceAsStream("districts.json");
+        List<String> districts =  mapper.readValue(is, new TypeReference<List<String>>() {});
+        return ApiResponse.<List<String>>builder()
+                .code(HttpStatus.OK.value())
+                .result(districts)
+                .build();
     }
 }

@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.*;
 public class CustomerController {
     CustomerService customerService;
     AuthenticationService authService;
-
     @GetMapping("/profile")
     public ApiResponse<CustomerResponseDTO> getCustomerProfile() {
         String customerId = authService.getCurrentUserId();
