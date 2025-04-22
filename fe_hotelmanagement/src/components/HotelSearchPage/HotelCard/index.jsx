@@ -27,7 +27,6 @@ const HotelCard = ({ hotel, adults, rooms, dateRange }) => {
 
     return (
         <>
-
             <div className="hotel-card" key={hotel?.id}>
                 <div className="hotel-image">
                     <img
