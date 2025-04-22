@@ -31,7 +31,6 @@ public class HotelController {
 
     HotelService hotelService;
     URLDecodeService urlDecodeService;
-
     @GetMapping("/result")
     ApiResponse<List<HotelResultResponse>> getListHotelToReservation(@RequestParam LocalDate checkIn,
                                                                      @RequestParam LocalDate checkOut,
@@ -44,7 +43,6 @@ public class HotelController {
                 .result(hotelResult)
                 .build();
     }
-
     @GetMapping("/search-hotel")
     public ApiResponse<PagingResponse<HotelResultResponse>> getListHotel(@RequestParam(required = true) LocalDate checkIn,
                                                                          @RequestParam(required = true) LocalDate checkOut,
@@ -65,8 +63,6 @@ public class HotelController {
                 .result(hotelResult)
                 .build();
     }
-
-
     @GetMapping("detail/{hotelId}")
     public ApiResponse<HotelDestailResponse> getHotelDetail(
             @PathVariable String hotelId,

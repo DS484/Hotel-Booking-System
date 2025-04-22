@@ -23,7 +23,6 @@ import java.io.IOException;
 public class TestController {
 
     FileStorageService fileStorageService;
-
     @PostMapping(value = "update-profile", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<ImageUpload> updateProfile(@RequestParam("avatar") MultipartFile file) throws IOException {
         String result = fileStorageService.storeImage(file);
@@ -33,4 +32,5 @@ public class TestController {
                         .build()
         );
     }
+
 }
