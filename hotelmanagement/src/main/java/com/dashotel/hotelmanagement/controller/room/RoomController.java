@@ -21,6 +21,8 @@ import java.io.IOException;
 public class RoomController {
     RoomTypeService roomTypeService;
 
+
+
     @PostMapping(consumes = "multipart/form-data")
     ApiResponse<CreationResponse> createRoom (@ModelAttribute RoomTypeCreationRequest request) throws IOException {
         var result = roomTypeService.createRoom(request);
@@ -48,6 +50,5 @@ public class RoomController {
                 .result(result)
                 .build();
     }
-
 
 }
