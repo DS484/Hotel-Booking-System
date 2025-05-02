@@ -13,7 +13,6 @@ const BillContainer = ({reservationDetails, checkIn, checkOut, totalPrice, disco
         return total + (reservationDetail.price * reservationDetail.quantity * days);
     }, 0);
     const { days } = calculateNightsAndDays(checkIn, checkOut);
-    console.log("Test info");
 
     return (
         <div className="bill-container">
