@@ -17,6 +17,8 @@ import java.io.IOException;
 @Component
 public class AuthenticationEntryPoint implements org.springframework.security.web.AuthenticationEntryPoint {
 
+
+
     ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
@@ -25,6 +27,7 @@ public class AuthenticationEntryPoint implements org.springframework.security.we
 
         // Có thể check loại exception tại đây nếu muốn
         Throwable cause = authException.getCause();
+
 
         ApiResponse apiResponse = new ApiResponse();
         apiResponse.setCode(ErrorCode.UNAUTHORIZED.getCode());
