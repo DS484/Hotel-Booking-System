@@ -9,10 +9,11 @@ import { formatCurrency } from "../../../../utils/Format/CurrencyFormat";
 
 const BillContainer = ({reservationDetails, checkIn, checkOut, totalPrice, discounts}) => {
 
-    const { days } = calculateNightsAndDays(checkIn, checkOut);
     const originalPrice = reservationDetails?.reduce((total, reservationDetail) => {
         return total + (reservationDetail.price * reservationDetail.quantity * days);
     }, 0);
+    const { days } = calculateNightsAndDays(checkIn, checkOut);
+    console.log("Test info");
 
     return (
         <div className="bill-container">
