@@ -37,7 +37,6 @@ import java.util.List;
 @RequiredArgsConstructor
 @Slf4j
 public class SecurityConfig {
-
     @NonFinal
     @Value("${spring.jwt.signerKey}")
     protected String SIGNER_KEY;
@@ -65,7 +64,7 @@ public class SecurityConfig {
         httpSecurity.oauth2ResourceServer(oauth2 ->
                 oauth2
                         .jwt(
-                            jwt -> jwt.decoder(customJwtDecoder).jwtAuthenticationConverter(jwtAuthenticationConverter())
+                                jwt -> jwt.decoder(customJwtDecoder).jwtAuthenticationConverter(jwtAuthenticationConverter())
                         )
                         .authenticationEntryPoint(new AuthenticationEntryPoint())
         );
@@ -73,22 +72,10 @@ public class SecurityConfig {
         return httpSecurity.build();
     }
 
-
     @Bean
     @Order(Ordered.HIGHEST_PRECEDENCE)
     public CorsFilter corsFilter() {
         return new CorsFilter(corsConfigurationSource());
-    }
-
-    // customize autho từ scope_ -> role_
-    @Bean
-    JwtAuthenticationConverter jwtAuthenticationConverter() {
-        JwtGrantedAuthoritiesConverter jwtGrantedAuthoritiesConverter = new JwtGrantedAuthoritiesConverter();
-        jwtGrantedAuthoritiesConverter.setAuthorityPrefix("ROLE_");
-
-        JwtAuthenticationConverter jwtAuthenticationConverter = new JwtAuthenticationConverter();
-        jwtAuthenticationConverter.setJwtGrantedAuthoritiesConverter(jwtGrantedAuthoritiesConverter);
-        return jwtAuthenticationConverter;
     }
 
 
@@ -104,5 +91,17 @@ public class SecurityConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
         return source;
+    }
+
+
+    // customize autho từ scope_ -> role_
+    @Bean
+    JwtAuthenticationConverter jwtAuthenticationConverter() {
+        JwtGrantedAuthoritiesConverter jwtGrantedAuthoritiesConverter = new JwtGrantedAuthoritiesConverter();
+        jwtGrantedAuthoritiesConverter.setAuthorityPrefix("ROLE_");
+
+        JwtAuthenticationConverter jwtAuthenticationConverter = new JwtAuthenticationConverter();
+        jwtAuthenticationConverter.setJwtGrantedAuthoritiesConverter(jwtGrantedAuthoritiesConverter);
+        return jwtAuthenticationConverter;
     }
 }
