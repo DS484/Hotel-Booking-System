@@ -10,9 +10,6 @@ jobs:
   frontend:
     name: Frontend CI
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: fe_hotelmanagement
 
     strategy:
       matrix:
@@ -21,6 +18,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Change directory to fe_hotelmanagement
+        run: cd fe_hotelmanagement
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
