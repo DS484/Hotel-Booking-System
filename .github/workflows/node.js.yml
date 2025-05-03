@@ -8,25 +8,25 @@ on:
 
 jobs:
   frontend:
-    name: Frontend CI
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [18.x]
 
+    defaults:
+      run:
+        working-directory: fe_hotelmanagement
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Change directory to fe_hotelmanagement
-        run: cd fe_hotelmanagement
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
+          cache-dependency-path: fe_hotelmanagement/package-lock.json
 
       - name: Install dependencies
         run: npm install
