@@ -55,6 +55,8 @@ const CustomerInfo = () => {
         setEditing(false);
     };
 
+    console.log("Test pull request merged and update info of customer");
+
     return (
         <main className="customer-profile__main">
             <div className="tabs">
