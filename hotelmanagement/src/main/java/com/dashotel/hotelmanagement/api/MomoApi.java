@@ -11,4 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface MomoApi {
     @PostMapping("/create")
     CreateMonoResponse createMomoQR(@RequestBody CreateMonoRequest createMonoRequest);
+
+    @PostMapping("/status")
+    String checkStatus(@RequestBody String requestId);
 }
