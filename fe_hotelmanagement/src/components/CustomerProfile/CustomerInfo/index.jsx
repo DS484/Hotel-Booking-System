@@ -55,7 +55,7 @@ const CustomerInfo = () => {
         setEditing(false);
     };
 
-    console.log("Test API - Issue");
+    console.log("Test pull request merged");
 
     return (
         <main className="customer-profile__main">
