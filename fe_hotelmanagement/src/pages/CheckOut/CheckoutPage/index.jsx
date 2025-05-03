@@ -77,11 +77,11 @@ const CheckOutPage = () => {
 
     const handleCancelReservation = async () => {
         const data = await cancelReservation(reservationId)
-        console.log(data, "step hiện tại") // -> nhớ xóa cái này nhá 
+        console.log(data, "Step hiện tại") // -> nhớ xóa cái này nhá
 
         if (data && data.code && data.code === 200 && data?.result && data.result.success === true) {
             dispatch(doDeleteReservation())
-            toast('Hủy giao dịch thành công !')
+            toast('Hủy giao dịch thành công!')
 
         } else if (data.response && data.response.data) {
 

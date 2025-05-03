@@ -9,10 +9,10 @@ import { formatCurrency } from "../../../../utils/Format/CurrencyFormat";
 
 const BillContainer = ({reservationDetails, checkIn, checkOut, totalPrice, discounts}) => {
 
-    const { days } = calculateNightsAndDays(checkIn, checkOut);
     const originalPrice = reservationDetails?.reduce((total, reservationDetail) => {
         return total + (reservationDetail.price * reservationDetail.quantity * days);
     }, 0);
+    const { days } = calculateNightsAndDays(checkIn, checkOut);
 
     return (
         <div className="bill-container">
@@ -57,7 +57,6 @@ const BillContainer = ({reservationDetails, checkIn, checkOut, totalPrice, disco
                 <hr style={{border: "none", borderTop: "1px dashed rgb(248, 243, 243)"}}></hr>
                 <h6 className="text-start mb-0 fw-light">Giá đã bao gồm: <span className="fw-light">Phí dịch vụ 5%</span></h6>
             </Container>
-        
         </div>
     )
 }
