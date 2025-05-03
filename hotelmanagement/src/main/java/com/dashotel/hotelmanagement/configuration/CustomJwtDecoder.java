@@ -23,22 +23,13 @@ import javax.crypto.spec.SecretKeySpec;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class CustomJwtDecoder implements JwtDecoder {
 
-    final AuthenticationService authenticationService;
 
     NimbusJwtDecoder nimbusJwtDecoder;
 
+    final AuthenticationService authenticationService;
+
     @Value("${spring.jwt.signerKey}")
     protected String SIGNER_KEY;
-
-
-    @PostConstruct
-    public void initDecoder() {
-        SecretKeySpec secretKeySpec = new SecretKeySpec(SIGNER_KEY.getBytes(), "HmacSHA512");
-        this.nimbusJwtDecoder = NimbusJwtDecoder
-                .withSecretKey(secretKeySpec)
-                .macAlgorithm(MacAlgorithm.HS512)
-                .build();
-    }
 
     @Override
     public Jwt decode(String token) throws JwtException {
@@ -55,4 +46,13 @@ public class CustomJwtDecoder implements JwtDecoder {
         }
     }
 
+
+    @PostConstruct
+    public void initDecoder() {
+        SecretKeySpec secretKeySpec = new SecretKeySpec(SIGNER_KEY.getBytes(), "HmacSHA512");
+        this.nimbusJwtDecoder = NimbusJwtDecoder
+                .withSecretKey(secretKeySpec)
+                .macAlgorithm(MacAlgorithm.HS512)
+                .build();
+    }
 }
