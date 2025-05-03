@@ -55,6 +55,8 @@ const CustomerInfo = () => {
         setEditing(false);
     };
 
+    console.log("Test API - Issue");
+
     return (
         <main className="customer-profile__main">
             <div className="tabs">
