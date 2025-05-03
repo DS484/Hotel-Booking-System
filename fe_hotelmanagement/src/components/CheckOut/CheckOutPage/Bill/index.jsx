@@ -70,17 +70,7 @@ const BillContainer = ({
           <h6 className="text-end mb-0">MIỄN PHÍ</h6>
         </div>
       </Container>
-
-      {/* <Container className="p-3 summary-section">
-                <div className="d-flex justify-content-between">
-                    <h5 style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-                        Giá tiền <FaInfo size={15} />
-                    </h5>
-                    <h5 className="text-end mb-0 fw-semibold">{formatCurrency(totalPrice)} ₫</h5>
-                </div>
-                <hr style={{border: "none", borderTop: "1px dashed rgb(248, 243, 243)"}}></hr>
-                <h6 className="text-start mb-0 fw-light">Giá đã bao gồm: <span className="fw-light">Phí dịch vụ 5%</span></h6>
-            </Container> */}
+      
       <Container className="p-3 summary-section">
         <div className="d-flex justify-content-between">
           <h5 style={{ display: "flex", alignItems: "center", gap: "2px" }}>
