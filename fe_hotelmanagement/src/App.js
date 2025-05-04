@@ -13,7 +13,7 @@ const App = () => {
       <ToastContainer
         position="top-right"
         autoClose={3000}
-        style={{ zIndex: 9999 }}
+        style={{ height: '100px', width: '400px' }}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick={false}
