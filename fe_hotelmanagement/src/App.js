@@ -15,6 +15,8 @@ const App = () => {
         autoClose={3000}
         style={{ height: '100px', width: '400px' }}
         hideProgressBar={123}
+        style={{ height: '100px', width: '400px', marginTop: '100px' }}
+        hideProgressBar={false}
         newestOnTop={false}
         closeOnClick={false}
         rtl={false}
