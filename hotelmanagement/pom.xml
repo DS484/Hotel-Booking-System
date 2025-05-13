@@ -177,3 +177,5 @@
     </build>
 </project>
 
+
+private Singleton() {}  // ngăn bên ngoài tạo object
